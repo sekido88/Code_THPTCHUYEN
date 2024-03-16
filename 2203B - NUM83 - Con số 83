@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() 
+{
+  // ios_base::sync_with_stdio(NULL);cin.tie(NULL);cout.tie(NULL);
+  long long n;
+  int t;
+  cin>>t;
+  while(t--)
+  {
+    cin>>n;
+    if(n%10==0) cout<<n/10*24<<'\n';
+    else
+    {
+      int p=0,m=n%10;
+      // nums=n+(10-m);
+      switch(m)
+      {
+        case 1:p=21;break;case 2:p=18;break;
+        case 3:p=16;break;case 4:p=15;break;
+        case 5:p=12;break;case 6:p=9;break;
+        case 7:p=8;break;case 8:p=6;break;
+        case 9:p=3;break;
+      }
+      cout<<(n+(10-m))/10*24-p<<'\n';
+    }
+  }
+    // cout << 5000000/10*24;
+    // cout<<nums/10*24-21;
+    return 0;
+}
+    
