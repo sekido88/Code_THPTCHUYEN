@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool sls(int x)
+{
+  int i=2,mu=1,du;set<int>st;
+  while(i<=x)
+{
+
+  if(x%i==0) { if(du==i) mu++;st.insert(i);du=i;x/=i;}
+  else i++;
+   
+}
+
+if(st.size()>2) return false;
+if(mu==4&&st.size()==1) return true;
+if(st.size()==2&&mu==1) return true;
+return false;
+}
+int main() 
+{ ios_base::sync_with_stdio(NULL);
+cin.tie(NULL);cout.tie(NULL);
+   long long n,res=0,res1=0;
+   cin>>n;
+   for(int i=1;i<=sqrt(n);i++) 
+   if(sls(i)) {res++;}
+   cout<<res;
+  return 0;
+}
+    
