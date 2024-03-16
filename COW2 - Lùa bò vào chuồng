@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+#include<math.h>
+using namespace std;
+#define ll long long
+#define For(a,b,i) for (int i = a ; i <= b ; i++)
+ll a[100005]  ,k;
+
+
+int n;
+
+bool ok (ll kc , ll sobo) {
+  ll cnt = 1 , kcht = a[1] + kc;
+  for (int i = 2 ; i <= n ; i++) {
+    if ( a[i] > kcht ) {
+      cnt ++ ;
+      kcht = a[i] + kc ;
+    }
+  }
+  return cnt >= sobo ;
+}
+void res(ll vip) {
+  ll l = 1 , r = vip , m ;
+  while (l <= r) {
+    m = ( l + r ) / 2 ;
+    if (ok (m ,k) ) l = m + 1 ;
+    else r = m - 1 ;
+  }
+  cout<<l;
+}
+int main(){
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);cout.tie(0);
+	cin >> n >> k;
+	For(1,n,i) cin >> a[i] ;
+	sort(a + 1 , a + 1 + n) ;
+	res(a[n] - a[1]) ;
+
+	return 0;
+}
+    
