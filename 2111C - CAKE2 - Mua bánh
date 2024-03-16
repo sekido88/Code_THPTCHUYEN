@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() 
+{
+  ios_base::sync_with_stdio(NULL);
+  cin.tie(NULL);
+int s=0,cnt=0,x;
+  while(cin>>x)
+  {
+    s=s+x;
+    cnt++;
+  }
+  cout<<s-cnt+1;
+
+    return 0;
+}
+    
