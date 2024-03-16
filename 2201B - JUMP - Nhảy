@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define FOR(a,b,i) for(int i=a;i<=b;i++)
+#define SPEED ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+#define ll long long
+ll n,f[30005],a[30005];
+int main() 
+{
+    cin>>n;
+    FOR(1,n,i) cin>>a[i];
+    f[1]=0;
+    
+    f[2]=abs(a[2]-a[1]);
+    FOR(3,n,i)
+    {
+      f[i]=min(f[i-1]+abs(a[i]-a[i-1]),f[i-2]+3*abs(a[i]-a[i-2]));
+    }
+    cout<<f[n];
+    return 0;
+}
+    
