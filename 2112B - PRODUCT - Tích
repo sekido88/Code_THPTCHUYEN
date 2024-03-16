@@ -1,0 +1,36 @@
+#pragma GCC optimize("Ofast")
+#pragma GCC optimize("03")
+#include <bits/stdc++.h>
+using namespace std;
+#define VE vector
+#define ll long long
+#define FOR(a,b,i) for(int i=a;i<=b;i++)
+#define SPEED ios_base::sync_with_stdio(NULL);cin.tie(NULL);cout.tie(0);
+int t,n;
+ll vm1[100005],v[100005],vm2[100005],vmin;
+ll x,res=-1e18;
+int main() 
+{
+  SPEED
+cin>>n;
+FOR(1,n,i)
+{
+  cin>>v[i];
+}
+vm1[n+1]=1e9;
+vm2[n+1]=-1e9;
+for(int i=n;i>=1;i--)
+{
+  vm1[i]=min(vm1[i+1],v[i]);
+  vm2[i]=max(vm2[i+1],v[i]);
+}
+FOR(1,n-1,i)
+{
+  res=max(res,v[i]*vm1[i+1]);
+  res=max(res,v[i]*vm2[i+1]);
+}
+cout<<res;
+
+    return 0;
+}
+    
